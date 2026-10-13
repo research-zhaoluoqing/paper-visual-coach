@@ -1,0 +1,6 @@
+interface:
+  display_name: "Paper Visual Coach"
+  short_description: "Read papers through plain language, diagrams, and examples"
+  default_prompt: "Use $paper-visual-coach to guide me through this paper in Simplified Chinese with small examples and diagrams, then explain the necessary equations."
+policy:
+  allow_implicit_invocation: true
