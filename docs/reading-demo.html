@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Four offline interactive examples of source-grounded visual paper coaching.">
+<title>Paper Visual Coach — Four visual examples</title>
+<style>
+:root{color-scheme:light dark;--bg:#f5f7f2;--ink:#173445;--muted:#4b626e;--surface:#fff;--line:#cbd8d4;--accent:#126c60;--tint:#e1f0e9;--warm:#80500b;--warm-bg:#fff0d4}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}main{max-width:1000px;margin:auto;padding:48px 28px 60px}h1{font-size:clamp(2.2rem,6vw,3.7rem);line-height:1.08;letter-spacing:-.05em;margin:16px 0 20px}h2{font-size:clamp(1.5rem,4vw,2rem);line-height:1.2;margin:10px 0}h3{font-size:1rem;margin:0 0 10px}.eyebrow{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:750;color:var(--accent)}p{max-width:72ch}a{color:var(--accent);text-underline-offset:3px}.intro{font-size:1.15rem;max-width:63ch}.route{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:26px 0 10px}.route li{padding:6px 12px;border-radius:7px;background:var(--tint);font-size:.85rem}.route .current{background:var(--ink);color:var(--surface)}.route .pending{background:var(--line);color:var(--ink)}.small{font-size:.85rem;color:var(--muted)}nav{display:flex;flex-wrap:wrap;gap:16px;margin:28px 0}section{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:18px}.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;margin-top:24px}.demo{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;min-width:0}.controls{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:18px 0}button,select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:9px 14px;min-height:44px}button{cursor:pointer}button.primary{background:var(--accent);color:var(--surface);border-color:var(--accent)}button:disabled{opacity:.5;cursor:default}:focus-visible{outline:3px solid var(--accent);outline-offset:3px}select{width:100%;max-width:100%}label{display:block}.event{font-size:1.3rem;font-weight:700;line-height:1.3;margin:15px 0}.badge{display:inline-block;font-size:.8rem;padding:3px 9px;border-radius:5px;background:var(--tint);font-weight:650}.trace{padding-left:24px}.trace li{padding-left:5px;margin-bottom:12px}.trace li.active{font-weight:700;color:var(--accent)}.trace li.future{color:var(--muted)}.source{margin-top:20px;font-size:.83rem}.source summary{cursor:pointer;font-weight:650}.graph{max-width:390px;margin:0 auto;text-align:center}.node{border:1px solid var(--line);border-radius:9px;padding:8px 12px;background:var(--bg);font-size:.9rem}.node strong{display:block;font-size:1rem}.node[data-status="completed"]{background:var(--tint)}.node[data-status="in progress"]{background:var(--warm-bg);color:var(--warm)}.node[data-status="ready"]{border:2px solid var(--accent)}.graph .one{max-width:230px;margin:0 auto}.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}.arrows{display:flex;justify-content:space-around;font-size:1.5rem;line-height:1.4;color:var(--muted);padding:2px 20%}.equation{font-size:1.05rem;line-height:1.6;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.result{padding:14px 0;border-top:1px solid var(--line);margin-top:15px}.result strong{font-size:1.6rem;line-height:1.2}.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}table{border-collapse:collapse;width:100%;font-size:.9rem}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line)}.check{display:flex;align-items:center;gap:10px;min-height:44px;margin:4px 0}.check input{width:20px;height:20px;accent-color:var(--accent);flex-shrink:0}svg{display:block;width:100%;height:auto;color:var(--ink)}.caption{font-size:.85rem;color:var(--muted)}.callout{padding-left:16px;border-left:3px solid var(--accent)}footer{border-top:1px solid var(--line);padding-top:25px;margin-top:30px;font-size:.9rem}
+@media(max-width:700px){main{padding:28px 16px}.layout{grid-template-columns:1fr;gap:18px}.demo{padding:18px}nav{gap:10px 18px}}
+@media(prefers-color-scheme:dark){:root{--bg:#132127;--ink:#e0ece7;--muted:#b4c9c5;--surface:#1b2c33;--line:#405a5d;--accent:#83d7c0;--tint:#25483e;--warm:#f2d398;--warm-bg:#493b26}.route .current{color:var(--surface)}button.primary{color:var(--surface)}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="eyebrow">Paper Visual Coach / Interactive examples</div>
+<h1>See what the paper<br>is actually doing.</h1>
+<p class="intro">Plain words, a small example, a visual trace, then the original source. Explore four concepts without needing to read an entire algorithm at once.</p>
+<ul class="route" aria-label="Illustrative reading progress"><li>Covered: the problem</li><li class="current">Current: mechanism and evidence</li><li class="pending">Pending: limits and recap</li></ul>
+<p class="small">This is a sample reading route, not an assessment of your understanding.</p>
+<nav aria-label="Examples"><a href="#adapt">1. ADaPT</a><a href="#flow">2. Flow states</a><a href="#metrics">3. Graph metrics</a><a href="#evidence">4. Evidence</a></nav>
+<p class="small">All scenarios and numbers below are teaching examples. This file works offline, makes no network requests, and does not execute agents or reproduce experiments.</p>
+</header>
+
+<section id="adapt">
+<div class="eyebrow">01 / Follow the control flow</div>
+<h2>Try first. Decompose when needed.</h2>
+<div class="layout">
+<div><p><strong>Question:</strong> When does the planner enter the process?</p><p>The ADaPT idea is to use execution feedback to decide whether a task needs to be broken into smaller parts.</p><p>Our fixed scenario is “put a clean mug on the desk.” Step through an attempt and watch the active task change.</p><p class="callout"><strong>What the coach adds:</strong> a concrete task, explicit depth, and a visible reason for each branch.</p><details class="source"><summary>Source and teaching assumptions</summary><p><a href="https://aclanthology.org/2024.findings-naacl.264.pdf">ADaPT, Section 3 and Algorithm 1</a>. The outcomes here are scripted illustrations. The paper uses an LLM completion heuristic. AND requires the subtasks; an OR search stops when an alternative succeeds. A depth guard can return failure.</p></details></div>
+<div class="demo">
+<label for="adapt-mode">Choose an illustrative outcome</label>
+<select id="adapt-mode"><option value="recursive">First attempt fails; decomposition succeeds</option><option value="direct">First attempt succeeds</option><option value="limit">A recursive call exceeds the depth limit</option></select>
+<div id="adapt-live" aria-live="polite"><span class="badge" id="adapt-count">State 1 of 6</span><p class="event" id="adapt-event">Try the whole task</p><p id="adapt-detail">Depth 1: the executor tries to put a clean mug on the desk.</p></div>
+<ol class="trace" id="adapt-trace"><li class="active">Try execution</li><li>Use feedback</li><li>Decompose if necessary</li></ol>
+<div class="controls"><button id="adapt-next" class="primary" type="button">Next state</button><button id="adapt-reset" type="button">Reset</button></div>
+</div>
+</div>
+</section>
+
+<section id="flow">
+<div class="eyebrow">02 / Inspect the current state</div>
+<h2>A finished batch can unlock more work.</h2>
+<div class="layout">
+<div><p><strong>Question:</strong> Can we stop when no graph change is needed?</p><p>A means requirements, B content, C styling, and D integration. Each arrow is a prerequisite. D waits for both B and C.</p><p>At the batch boundary, B and C can be completed while D is ready but not yet completed. The graph can remain exactly the same.</p><p class="callout"><strong>What the coach adds:</strong> a distinction between “this running batch is finished” and “all nodes are completed.”</p><details class="source"><summary>Source and teaching assumptions</summary><p><a href="https://arxiv.org/html/2501.07834v2">Flow v2, Algorithm 2 and Appendix D.4</a>. The diagram is a teaching graph. Ready and blocked label not-started tasks with zero or nonzero incomplete parents. “Completed” follows simplified algorithm state; independent acceptance checks are outside this walkthrough.</p></details></div>
+<div class="demo">
+<div class="graph" aria-label="A precedes B and C; both B and C precede D">
+<div class="node one" data-status="completed"><strong>A · Requirements</strong><span>completed</span></div>
+<div class="arrows" aria-hidden="true"><span>↙</span><span>↘</span></div>
+<div class="pair"><div id="flow-b" class="node" data-status="not started"><strong>B · Content</strong><span>not started</span></div><div id="flow-c" class="node" data-status="not started"><strong>C · Styling</strong><span>not started</span></div></div>
+<div class="arrows" aria-hidden="true"><span>↘</span><span>↙</span></div>
+<div id="flow-d" class="node one" data-status="blocked"><strong>D · Integration</strong><span>blocked</span></div>
+</div>
+<div id="flow-live" aria-live="polite"><p class="equation" id="flow-count">D has 2 incomplete parents.</p><p id="flow-detail">A is completed. B and C can start.</p><span class="badge" id="flow-stop">Whole graph completed: no</span></div>
+<div class="controls"><button id="flow-next" class="primary" type="button">Next state</button><button id="flow-reset" type="button">Reset</button></div>
+</div>
+</div>
+</section>
+
+<section id="metrics">
+<div class="eyebrow">03 / Put numbers on visible objects</div>
+<h2>Change one edge. Inspect two scores.</h2>
+<div class="layout">
+<div><p><strong>Question:</strong> What does dependency complexity count?</p><p>Count all direct connections at each node, including incoming and outgoing edges. Standard deviation measures how much those counts differ.</p><p>The extra A → D edge is redundant in this example: D already waits for A through B and C. The layer counts stay 1, 2, 1.</p><p class="callout"><strong>What the coach adds:</strong> the equation becomes a calculation on four visible nodes.</p><details class="source"><summary>Source and teaching assumptions</summary><p><a href="https://arxiv.org/html/2501.07834v2#S3">Flow v2, Section 3</a>. Dependency complexity uses connection-count standard deviation. Parallelism averages task counts per layer. The graph is illustrative, its layout is schematic, and these scores do not establish actual execution time.</p></details></div>
+<div class="demo">
+<svg viewBox="0 0 500 260" role="img" aria-labelledby="graph-title graph-desc"><title id="graph-title">Four-node teaching graph</title><desc id="graph-desc">A connects to B and C. B and C connect to D. An optional extra edge connects A directly to D.</desc><defs><marker id="edge-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7" fill="currentColor"/></marker></defs><g stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#edge-arrow)"><path d="M83 119 L220 63"/><path d="M83 141 L220 197"/><path d="M278 63 L415 119"/><path d="M278 197 L415 141"/><path id="metric-extra-edge" d="M86 130 H412" stroke-dasharray="7 6" visibility="hidden"/></g><g fill="var(--surface)" stroke="currentColor" stroke-width="2"><circle cx="55" cy="130" r="30"/><circle cx="250" cy="50" r="30"/><circle cx="250" cy="210" r="30"/><circle cx="445" cy="130" r="30"/></g><g fill="currentColor" text-anchor="middle" font-size="25" font-family="system-ui"><text x="55" y="139">A</text><text x="250" y="59">B</text><text x="250" y="219">C</text><text x="445" y="139">D</text></g></svg>
+<label class="check"><input id="metric-extra" type="checkbox">Add the direct edge A → D</label>
+<table><caption class="caption">Direct connections, not just incoming parents</caption><thead><tr><th scope="col">Node</th><th scope="col">Count</th></tr></thead><tbody id="metric-counts"><tr><td>A</td><td>2</td></tr><tr><td>B</td><td>2</td></tr><tr><td>C</td><td>2</td></tr><tr><td>D</td><td>2</td></tr></tbody></table>
+<div class="result" aria-live="polite"><div class="metric-grid"><div><div class="small">Average tasks per layer</div><strong>1.33</strong></div><div><div class="small">Connection standard deviation</div><strong id="metric-sd">0.00</strong></div></div><p class="equation" id="metric-explain">Mean = 2. All four deviations are zero.</p></div>
+</div>
+</div>
+</section>
+
+<section id="evidence">
+<div class="eyebrow">04 / Interpret the evidence</div>
+<h2>Partial credit is different from passing everything.</h2>
+<div class="layout">
+<div><p><strong>Question:</strong> What is the percentage averaging?</p><p>Imagine a slide deck that compiles and includes the required content but has the wrong slide count. Two of three requirements pass.</p><p>A 66.7% mean requirement score does not mean this deck fully meets the task.</p><p class="callout"><strong>What the coach adds:</strong> the denominator and aggregation are visible before a result is interpreted.</p><details class="source"><summary>Source and teaching assumptions</summary><p><a href="https://arxiv.org/html/2501.07834v2">Flow v2, Appendix B.1</a> averages three binary requirements. The deck here is hypothetical; its changing scores are not reported experimental data or success probabilities.</p></details></div>
+<div class="demo">
+<fieldset style="border:0;padding:0;margin:0"><legend>Toggle hypothetical requirements</legend><label class="check"><input class="requirement" type="checkbox" checked>Compiles</label><label class="check"><input class="requirement" type="checkbox" checked>Required content is present</label><label class="check"><input class="requirement" type="checkbox">Correct slide count</label></fieldset>
+<div class="result" aria-live="polite"><div class="small">Mean requirement score</div><strong id="evidence-score">66.7%</strong><p class="equation" id="evidence-equation">(1 + 1 + 0) / 3 × 100</p><span class="badge" id="evidence-all">All requirements passed: no</span></div>
+</div>
+</div>
+</section>
+<footer><p><strong>About the skill.</strong> A reading route, explanations before checks, and explicit source boundaries are intended teaching benefits. No controlled learner study is claimed. See the <a href="visual-examples.md">example guide</a> or <a href="../README.md">repository README</a> for prompts and installation information.</p></footer>
+</main>
+<script>
+'use strict';
+const byId = id => document.getElementById(id);
+const adaptCommon = [
+  ['Try the whole task', 'Depth 1: the executor tries to put a clean mug on the desk.'],
+  ['The first attempt fails', 'The executor cannot complete this task directly. Planning is now needed.'],
+  ['Decompose: find AND clean AND place', 'Depth 2: each subtask receives its own execution attempt. Finding the mug fails.']
+];
+const adaptSequences = {
+ recursive: [...adaptCommon,
+  ['Decompose the failing subtask', 'Depth 3: try “search countertop OR search cabinet.” The countertop search succeeds.'],
+  ['Skip the unused OR alternative', 'A mug was found. The cabinet search is not executed. Continue with cleaning and placing.'],
+  ['Return success to the parent', 'In this fixed illustration, finding, cleaning, and placing all complete. The AND plan succeeds.']],
+ direct: [adaptCommon[0], ['Return success without a plan', 'The whole-task attempt succeeds. No decomposition is called.']],
+ limit: [...adaptCommon,
+  ['A new call would exceed the limit', 'Illustration: the next recursive call has k > d_max. The depth guard returns failure before execution.'],
+  ['Return failure to the parent', 'A required AND subtask failed at the depth guard. This illustrated plan fails.']]
+};
+let adaptStep = 0;
+function renderAdapt(){
+ const states = adaptSequences[byId('adapt-mode').value];
+ const [title, detail] = states[adaptStep];
+ byId('adapt-count').textContent = `State ${adaptStep+1} of ${states.length}`;
+ byId('adapt-event').textContent = title; byId('adapt-detail').textContent = detail;
+ byId('adapt-trace').replaceChildren(...states.map((entry,i)=>{const item=document.createElement('li');item.textContent=entry[0];item.className=i===adaptStep?'active':i>adaptStep?'future':'';if(i===adaptStep)item.setAttribute('aria-current','step');return item;}));
+ byId('adapt-next').disabled = adaptStep === states.length-1;
+}
+byId('adapt-mode').addEventListener('change',()=>{adaptStep=0;renderAdapt();});
+byId('adapt-next').addEventListener('click',()=>{const n=adaptSequences[byId('adapt-mode').value].length;if(adaptStep<n-1)adaptStep++;renderAdapt();});
+byId('adapt-reset').addEventListener('click',()=>{adaptStep=0;renderAdapt();});
+const flowStates = [
+ ['not started','not started','blocked',2,'A is completed. B and C can start.'],
+ ['in progress','in progress','blocked',2,'B and C run in parallel. D waits for both.'],
+ ['completed','in progress','blocked',1,'B is completed. C is still running, so D remains blocked.'],
+ ['completed','completed','ready',0,'This batch is finished. No graph change is needed, but D still needs to run.'],
+ ['completed','completed','in progress',0,'D integrates the outputs. The graph is still not fully completed.'],
+ ['completed','completed','completed',0,'All nodes are completed in this simplified algorithm walkthrough.']
+];
+let flowStep=0;
+function renderFlow(){
+ const state=flowStates[flowStep];['b','c','d'].forEach((name,i)=>{const node=byId(`flow-${name}`);node.dataset.status=state[i];node.querySelector('span').textContent=state[i];});
+ byId('flow-count').textContent=`D has ${state[3]} incomplete parent${state[3]===1?'':'s'}.`;
+ byId('flow-detail').textContent=state[4];byId('flow-stop').textContent=`Whole graph completed: ${state.slice(0,3).every(s=>s==='completed')?'yes':'no'}`;
+ byId('flow-next').disabled=flowStep===flowStates.length-1;
+}
+byId('flow-next').addEventListener('click',()=>{if(flowStep<flowStates.length-1)flowStep++;renderFlow();});
+byId('flow-reset').addEventListener('click',()=>{flowStep=0;renderFlow();});
+function renderMetric(){
+ const extra=byId('metric-extra').checked;const counts=extra?[3,2,2,3]:[2,2,2,2];const mean=counts.reduce((a,b)=>a+b,0)/4;const sd=Math.sqrt(counts.reduce((a,b)=>a+(b-mean)**2,0)/4);
+ byId('metric-extra-edge').setAttribute('visibility',extra?'visible':'hidden');
+ byId('metric-counts').replaceChildren(...counts.map((count,i)=>{const row=document.createElement('tr');const label=document.createElement('td');const value=document.createElement('td');label.textContent='ABCD'[i];value.textContent=count;row.append(label,value);return row;}));
+ byId('metric-sd').textContent=sd.toFixed(2);byId('metric-explain').textContent=extra?'Mean = 2.5. Deviations: +0.5, −0.5, −0.5, +0.5. Square, average, then take the square root: 0.5.':'Mean = 2. All four deviations are zero.';
+}
+byId('metric-extra').addEventListener('change',renderMetric);
+function renderEvidence(){const values=[...document.querySelectorAll('.requirement')].map(box=>Number(box.checked));const score=values.reduce((a,b)=>a+b,0)/values.length*100;byId('evidence-score').textContent=`${score.toFixed(1)}%`;byId('evidence-equation').textContent=`(${values.join(' + ')}) / 3 × 100`;byId('evidence-all').textContent=`All requirements passed: ${values.every(Boolean)?'yes':'no'}`;}
+document.querySelectorAll('.requirement').forEach(box=>box.addEventListener('change',renderEvidence));
+renderAdapt();renderFlow();renderMetric();renderEvidence();
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="680" viewBox="0 0 1080 680" role="img" aria-labelledby="title desc">
+  <title id="title">Paper Visual Coach: from a paper to an explanation you can follow</title>
+  <desc id="desc">A reading route marks covered, current, and pending material. A teaching loop connects plain words, a small example, a visual trace, and the original paper. Four examples illustrate recursive decomposition, task readiness, graph metrics, and experimental scoring.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="#49697c"/></marker></defs>
+  <rect width="1080" height="680" rx="24" fill="#f5f7f2"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#173445">
+    <text x="48" y="57" font-size="14" font-weight="700" letter-spacing="2" fill="#28756c">SOURCE-GROUNDED READING FOR BEGINNERS</text>
+    <text x="48" y="111" font-size="42" font-weight="700">Paper Visual Coach</text>
+    <text x="48" y="148" font-size="20">See the mechanism. Work a small example. Return to the paper.</text>
+    <text x="48" y="199" font-size="14" font-weight="700">WHERE ARE WE IN THE READING?</text>
+    <rect x="48" y="215" width="228" height="48" rx="10" fill="#dfeee6"/>
+    <text x="68" y="245" font-size="17">Covered: the problem</text>
+    <path d="M288 239 H324" stroke="#49697c" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="340" y="215" width="285" height="48" rx="10" fill="#173445"/>
+    <text x="360" y="245" font-size="17" fill="#fff">Current: how the method works</text>
+    <path d="M637 239 H673" stroke="#49697c" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="690" y="215" width="342" height="48" rx="10" fill="#e5e9e8"/>
+    <text x="710" y="245" font-size="17">Pending: experiments and limits</text>
+    <text x="48" y="291" font-size="14" fill="#49697c">Covered means explained, not proven mastery.</text>
+    <text x="48" y="334" font-size="14" font-weight="700">HOW A READING UNIT WORKS</text>
+    <g font-size="18" font-weight="700">
+      <rect x="48" y="352" width="210" height="72" rx="10" fill="#fff" stroke="#d1dcda"/>
+      <text x="68" y="383">01  Plain words</text><text x="68" y="407" font-size="14" font-weight="400">What problem is being solved?</text>
+      <rect x="306" y="352" width="210" height="72" rx="10" fill="#fff" stroke="#d1dcda"/>
+      <text x="326" y="383">02  Small example</text><text x="326" y="407" font-size="14" font-weight="400">A few tasks or numbers.</text>
+      <rect x="564" y="352" width="210" height="72" rx="10" fill="#fff" stroke="#d1dcda"/>
+      <text x="584" y="383">03  Visual trace</text><text x="584" y="407" font-size="14" font-weight="400">Track one state change.</text>
+      <rect x="822" y="352" width="210" height="72" rx="10" fill="#fff" stroke="#d1dcda"/>
+      <text x="842" y="383">04  Back to the paper</text><text x="842" y="407" font-size="14" font-weight="400">Check the source and limits.</text>
+    </g>
+    <g stroke="#49697c" stroke-width="2" marker-end="url(#arrow)"><path d="M269 388 H295"/><path d="M527 388 H553"/><path d="M785 388 H811"/></g>
+    <text x="48" y="466" font-size="14" font-weight="700">FOUR QUESTIONS THE EXAMPLES HELP YOU ANSWER</text>
+    <g font-size="17">
+      <text x="48" y="505" font-weight="700">ADaPT</text><text x="48" y="531">When should we decompose?</text><text x="48" y="555" font-size="14" fill="#49697c">Follow an execution branch.</text>
+      <text x="306" y="505" font-weight="700">Flow</text><text x="306" y="531">Is the next task ready?</text><text x="306" y="555" font-size="14" fill="#49697c">Separate a batch from the full graph.</text>
+      <text x="564" y="505" font-weight="700">Graph metrics</text><text x="564" y="531">What does the equation count?</text><text x="564" y="555" font-size="14" fill="#49697c">Change an edge; inspect the numbers.</text>
+      <text x="822" y="505" font-weight="700">Evidence</text><text x="822" y="531">What does this score mean?</text><text x="822" y="555" font-size="14" fill="#49697c">Separate partial credit from passing.</text>
+    </g>
+    <path d="M48 592 H1032" stroke="#d1dcda"/>
+    <text x="48" y="623" font-size="16">Plain language + examples + diagrams + explicit source boundaries</text>
+    <text x="48" y="650" font-size="14" fill="#49697c">Instruction-based skill. Illustrative demos; no measured learning gains are claimed.</text>
+  </g>
+</svg>

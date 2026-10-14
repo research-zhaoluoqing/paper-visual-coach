@@ -7,6 +7,24 @@ It combines adaptive reading companionship with source-grounded visual teaching.
 The instructions are written in English. Lessons default to Simplified Chinese,
 with other languages available on request.
 
+![Paper Visual Coach: the visual reading approach](assets/visual-overview.svg)
+
+## See it through examples
+
+[Read the illustrated examples](docs/visual-examples.md) or download the
+[offline interactive demo](docs/reading-demo.html) and open it in a browser.
+GitHub renders the guide and diagram; the HTML file runs locally after download.
+
+| Example | Core idea | Try it |
+|---|---|---|
+| ADaPT | Execute first, decompose on failure | Step through success, recursion, or a depth-limit failure |
+| Flow | Finishing a running batch can unlock another task | Watch parent counts and task readiness change |
+| Graph metrics | A visible graph makes an equation concrete | Add one edge and calculate the standard deviation |
+| Experimental evidence | A mean requirement score differs from full task success | Toggle three requirements and inspect both outcomes |
+
+These are teaching illustrations, not reproduced experiments or measured learning
+gains. Each example identifies its source and simplifying assumptions.
+
 ## The learning loop
 
 ```mermaid
@@ -14,7 +32,8 @@ flowchart LR
   A[Plain-language idea] --> B[Small worked example]
   B --> C[Diagram or state trace]
   C --> D[Original method or equation]
-  D --> E[Light understanding check]
+  D --> E[When useful: understanding check]
+  D --> F[Continue or repair a missing prerequisite]
   E --> F[Continue or repair a missing prerequisite]
   F --> A
 ```
@@ -25,9 +44,11 @@ a faster pace, a derivation, or uninterrupted teaching at any point.
 ## What it does
 
 - Starts with the paper's problem and a lightweight reading map.
+- Shows covered, current, and pending reading units at major transitions.
 - Explains unfamiliar background only when it is needed.
 - Uses flowcharts, search trees, state tables, and numerical examples.
 - Maps teaching examples back to the actual paper and states their limits.
+- Checks a reader's counterexample against explicit assumptions and the source.
 - Explains what an equation computes before walking through its symbols.
 - Uses occasional predictions or restatements to identify misunderstanding.
 - Can create an offline-readable HTML visual notebook when useful.
@@ -65,6 +86,9 @@ For a visual notebook:
 | `references/visual-guide.md` | Diagram selection, interaction, and HTML checks |
 | `references/learning-notes.md` | Compact reading checkpoints and resuming |
 | `agents/openai.yaml` | Optional agent UI metadata |
+| `docs/visual-examples.md` | Four worked examples and English prompts |
+| `docs/reading-demo.html` | Self-contained offline interactive companion |
+| `assets/visual-overview.svg` | Reading approach at a glance |
 
 This is an instruction-based skill, not a PDF parser or a standalone application.
 It uses the host agent's source-reading, diagramming, and preview capabilities.
@@ -79,7 +103,10 @@ reader's responses rather than inferred from a friendly acknowledgement.
 
 Validation so far covers skill metadata, local references, and packaging. No
 independent learner study or end-to-end paper-coaching evaluation has been run.
-Visual output still requires preview and interaction checks when it is created.
+The overview diagram was visually checked and the example controls were tested
+with a DOM implementation. The demo's browser layout and native input behavior
+remain unchecked because local browser preview was unavailable. Visual output
+still requires preview and interaction checks when it is created.
 
 ## Acknowledgements
 
